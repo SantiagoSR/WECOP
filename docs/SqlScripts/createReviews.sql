@@ -10,7 +10,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-SET foreign_key_checks = 0;
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,23 +27,23 @@ SET foreign_key_checks = 0;
 -- Estructura de tabla para la tabla `reviews`
 --
 
--- CREATE TABLE `reviews` (
---   `id` bigint(20) UNSIGNED NOT NULL,
---   `rating` double(8,2) NOT NULL,
---   `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
---   `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
---   `eco_product_id` bigint(20) UNSIGNED NOT NULL,
---   `user_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
---   `created_at` timestamp NULL DEFAULT NULL,
---   `updated_at` timestamp NULL DEFAULT NULL
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS `reviews` (
+  `id` bigint(20) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `rating` double(8,2) NOT NULL,
+  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  CONSTRAINT reviews_eco_product_foreign FOREIGN KEY (eco_product_id) REFERENCES eco_products(id),
+  `user_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+);
 
 --
 -- Volcado de datos para la tabla `reviews`
 --
 
 
-INSERT INTO `reviews` (`id`, `rating`, `title`, `message`, `eco_product_id`, `user_id`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `reviews` (`id`, `rating`, `title`, `message`, `eco_product_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 4.00, 'Student', 'Meh', 4, 4, NULL, NULL),
 (2, 5.00, 'Hiiii', 'WOW', 4, 4, '2021-04-07 03:53:13', NULL),
 (3, 3.00, 'Freak', 'A lot', 4, 4, '2021-04-06 23:13:02', NULL),
@@ -67,7 +67,6 @@ INSERT INTO `reviews` (`id`, `rating`, `title`, `message`, `eco_product_id`, `us
 (21, 5.00, 'Just buy it', 'Kids love it', 9, 1, '2021-04-02 22:49:28', NULL),
 (22, 3.00, 'Freak', 'A lot', 4, 1, '2021-04-06 23:13:02', NULL);
 
-SET foreign_key_checks = 1;
 --
 -- Índices para tablas volcadas
 --
@@ -75,9 +74,6 @@ SET foreign_key_checks = 1;
 --
 -- Indices de la tabla `reviews`
 --
--- ALTER TABLE `reviews`
---   ADD PRIMARY KEY (`id`),
---   ADD KEY `reviews_eco_product_foreign` (`eco_product`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -86,8 +82,7 @@ SET foreign_key_checks = 1;
 --
 -- AUTO_INCREMENT de la tabla `reviews`
 --
--- ALTER TABLE `reviews`
---   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+ALTER TABLE `reviews` AUTO_INCREMENT=23;
 
 --
 -- Restricciones para tablas volcadas
@@ -96,11 +91,8 @@ SET foreign_key_checks = 1;
 --
 -- Filtros para la tabla `reviews`
 --
--- ALTER TABLE `reviews`
---   ADD CONSTRAINT `reviews_eco_product_foreign` FOREIGN KEY (`eco_product`) REFERENCES `eco_products` (`id`);
--- COMMIT;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
