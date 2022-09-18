@@ -53,13 +53,13 @@ jobs:
       env:
         DB_PORT: ${{ job.services.mysql.ports['3306'] }}
 
-    - name: Execute scripts to upload data to database
-      env:
-        DB_DATABASE: laravel
-      run: |
-        mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES;"
-        mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createNotEcoProducts.sql;"
-        mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "SELECT * FROM not_eco_products;"
+    # - name: Execute scripts to upload data to database
+    #   env:
+    #     DB_DATABASE: laravel
+    #   run: |
+    #     mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES;"
+    #     mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createNotEcoProducts.sql;"
+    #     mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "SELECT * FROM not_eco_products;"
 
     - name: Execute tests using artisan
       working-directory: ./WECOP
