@@ -58,7 +58,7 @@ jobs:
         DB_DATABASE: laravel
       run: |
         mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES;"
-        mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "FROM `eco_products` SELECT *"
+        mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "FROM 'eco_products' SELECT *"
         mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/dropTables.sql;"
         mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createNotEcoProducts.sql;"
 
