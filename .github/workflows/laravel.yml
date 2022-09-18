@@ -59,8 +59,12 @@ jobs:
       run: |
         mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES;"
         mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW TABLES FROM laravel;"
-        mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createNotEcoProducts.sql;"
-        mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "SELECT * FROM not_eco_products;"
+        mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/dropTables.sql;"
+        mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createEcoProducs.sql;"
+        mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createEcoProducts.sql;"
+        mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createUsers.sql"
+        mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createReviews.sql"
+        mysql --host 127.0.0.1 -uroot --port 3306 -e "Select * FROM laravel.eco_products;"
 
     - name: Execute tests using artisan
       working-directory: ./WECOP
