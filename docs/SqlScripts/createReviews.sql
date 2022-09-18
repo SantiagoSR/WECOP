@@ -10,7 +10,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
+SET foreign_key_checks = 0;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -67,6 +67,7 @@ INSERT INTO `reviews` (`id`, `rating`, `title`, `message`, `eco_product_id`, `us
 (21, 5.00, 'Just buy it', 'Kids love it', 9, 1, '2021-04-02 22:49:28', NULL),
 (22, 3.00, 'Freak', 'A lot', 4, 1, '2021-04-06 23:13:02', NULL);
 
+SET foreign_key_checks = 1;
 --
 -- Índices para tablas volcadas
 --

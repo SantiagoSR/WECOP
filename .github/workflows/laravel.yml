@@ -64,7 +64,6 @@ jobs:
         mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW TABLES FROM laravel;"
         mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createNotEcoProducts.sql;"
         mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createEcoProducts.sql;"
-        mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW ENGINE INNODB STATUS;"
         mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createUsers.sql"
         mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createReviews.sql"
         mysql --host 127.0.0.1 -uroot --port 3306 -e "Select * FROM laravel.eco_products;"
