@@ -27,15 +27,15 @@ SET time_zone = "+00:00";
 -- Table structure for table `not_eco_products`
 --
 
-CREATE TABLE `not_eco_products` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` double(8,2) NOT NULL,
-  `emision` double(8,2) NOT NULL,
-  `product_life` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- CREATE TABLE `not_eco_products` (
+--   `id` bigint(20) UNSIGNED NOT NULL,
+--   `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+--   `price` double(8,2) NOT NULL,
+--   `emision` double(8,2) NOT NULL,
+--   `product_life` int(11) NOT NULL,
+--   `created_at` timestamp NULL DEFAULT NULL,
+--   `updated_at` timestamp NULL DEFAULT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `not_eco_products`
@@ -53,8 +53,8 @@ INSERT INTO `not_eco_products` (`id`, `name`, `price`, `emision`, `product_life`
 --
 -- Indexes for table `not_eco_products`
 --
-ALTER TABLE `not_eco_products`
-  ADD PRIMARY KEY (`id`);
+-- ALTER TABLE `not_eco_products`
+--   ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -63,9 +63,9 @@ ALTER TABLE `not_eco_products`
 --
 -- AUTO_INCREMENT for table `not_eco_products`
 --
-ALTER TABLE `not_eco_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-COMMIT;
+-- ALTER TABLE `not_eco_products`
+--   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+-- COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

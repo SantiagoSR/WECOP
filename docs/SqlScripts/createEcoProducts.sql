@@ -27,21 +27,21 @@ SET time_zone = "+00:00";
 -- Table structure for table `eco_products`
 --
 
-CREATE TABLE `eco_products` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` double(8,2) NOT NULL,
-  `stock` int(11) NOT NULL,
-  `facts` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `categories` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `emision` double(8,2) NOT NULL,
-  `product_life` int(11) NOT NULL,
-  `photo` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `not_eco_product` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- CREATE TABLE `eco_products` (
+--   `id` bigint(20) UNSIGNED NOT NULL,
+--   `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+--   `price` double(8,2) NOT NULL,
+--   `stock` int(11) NOT NULL,
+--   `facts` text COLLATE utf8mb4_unicode_ci NOT NULL,
+--   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+--   `categories` text COLLATE utf8mb4_unicode_ci NOT NULL,
+--   `emision` double(8,2) NOT NULL,
+--   `product_life` int(11) NOT NULL,
+--   `photo` text COLLATE utf8mb4_unicode_ci NOT NULL,
+--   `not_eco_product` bigint(20) UNSIGNED NOT NULL,
+--   `created_at` timestamp NULL DEFAULT NULL,
+--   `updated_at` timestamp NULL DEFAULT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `eco_products`
@@ -62,9 +62,9 @@ INSERT INTO `eco_products` (`id`, `name`, `price`, `stock`, `facts`, `descriptio
 --
 -- Indexes for table `eco_products`
 --
-ALTER TABLE `eco_products`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `eco_products_not_eco_product_foreign` (`not_eco_product`);
+-- ALTER TABLE `eco_products`
+--   ADD PRIMARY KEY (`id`),
+--   ADD KEY `eco_products_not_eco_product_foreign` (`not_eco_product`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -73,8 +73,8 @@ ALTER TABLE `eco_products`
 --
 -- AUTO_INCREMENT for table `eco_products`
 --
-ALTER TABLE `eco_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+-- ALTER TABLE `eco_products`
+--   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
@@ -83,9 +83,9 @@ ALTER TABLE `eco_products`
 --
 -- Constraints for table `eco_products`
 --
-ALTER TABLE `eco_products`
-  ADD CONSTRAINT `eco_products_not_eco_product_foreign` FOREIGN KEY (`not_eco_product`) REFERENCES `not_eco_products` (`id`);
-COMMIT;
+-- ALTER TABLE `eco_products`
+--   ADD CONSTRAINT `eco_products_not_eco_product_foreign` FOREIGN KEY (`not_eco_product`) REFERENCES `not_eco_products` (`id`);
+-- COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

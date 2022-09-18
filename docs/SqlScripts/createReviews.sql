@@ -27,16 +27,16 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `reviews`
 --
 
-CREATE TABLE `reviews` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `rating` double(8,2) NOT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `eco_product_id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- CREATE TABLE `reviews` (
+--   `id` bigint(20) UNSIGNED NOT NULL,
+--   `rating` double(8,2) NOT NULL,
+--   `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+--   `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+--   `eco_product_id` bigint(20) UNSIGNED NOT NULL,
+--   `user_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
+--   `created_at` timestamp NULL DEFAULT NULL,
+--   `updated_at` timestamp NULL DEFAULT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `reviews`
@@ -74,9 +74,9 @@ INSERT INTO `reviews` (`id`, `rating`, `title`, `message`, `eco_product_id`, `us
 --
 -- Indices de la tabla `reviews`
 --
-ALTER TABLE `reviews`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `reviews_eco_product_foreign` (`eco_product`);
+-- ALTER TABLE `reviews`
+--   ADD PRIMARY KEY (`id`),
+--   ADD KEY `reviews_eco_product_foreign` (`eco_product`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -85,8 +85,8 @@ ALTER TABLE `reviews`
 --
 -- AUTO_INCREMENT de la tabla `reviews`
 --
-ALTER TABLE `reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+-- ALTER TABLE `reviews`
+--   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restricciones para tablas volcadas
@@ -95,9 +95,9 @@ ALTER TABLE `reviews`
 --
 -- Filtros para la tabla `reviews`
 --
-ALTER TABLE `reviews`
-  ADD CONSTRAINT `reviews_eco_product_foreign` FOREIGN KEY (`eco_product`) REFERENCES `eco_products` (`id`);
-COMMIT;
+-- ALTER TABLE `reviews`
+--   ADD CONSTRAINT `reviews_eco_product_foreign` FOREIGN KEY (`eco_product`) REFERENCES `eco_products` (`id`);
+-- COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
