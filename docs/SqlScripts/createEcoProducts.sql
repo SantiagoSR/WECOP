@@ -10,7 +10,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
+SET foreign_key_checks = 0;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -55,6 +55,8 @@ INSERT INTO `eco_products` (`id`, `name`, `price`, `stock`, `facts`, `descriptio
 (8, 'Bamboo Toothbrush', 9.99, 699, 'Bamboo Toothbrushes are VEGAN!', 'Four colorful bamboo toothbrush.', 'Daily use, bamboo, toothbrush, vegan', 90.00, 90, 'bambooToothbrush.jpg', 4, '2021-04-06 03:51:37', '2021-04-06 03:51:37'),
 (9, 'Reusable makeup remover cotton pads', 9.99, 699, 'Cotton pads are vegan!', '16 Reusable makeup remover cotton pads, 12 are soft bamboo and 4 are scrub bamboo.', 'Daily use, bamboo, toothbrush, vegan', 32.40, 360, 'reusable-makeup-remover-pads-bamboo.jpg', 5, '2021-04-23 03:51:37', '2021-04-23 03:51:37');
 
+
+SET foreign_key_checks = 1;
 --
 -- Indexes for dumped tables
 --
