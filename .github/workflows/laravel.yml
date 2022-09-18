@@ -44,6 +44,7 @@ jobs:
 
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
+        DB_PORT: ${{ job.services.mysql.ports['3306'] }}
         DB_CONNECTION: mysql
         DB_DATABASE: laravel
       run: |
@@ -53,5 +54,3 @@ jobs:
         mysql -u root < ./docs/SqlScripts/createReviews.sql
         cd WECOP
         php artisan test
-      env:
-        DB_PORT: ${{ job.services.mysql.ports['3306'] }}
