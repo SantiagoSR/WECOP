@@ -58,7 +58,10 @@ jobs:
         DB_DATABASE: laravel
       run: |
         mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES;"
+        mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES LIKE 'laravel';"
+        mysql --host 127.0.0.1 -uroot --port 3306 -e "Drop TABLE 'not_eco_products';"
         mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createNotEcoProducts.sql;"
+
     - name: Execute tests using artisan
       working-directory: ./WECOP
       env:
