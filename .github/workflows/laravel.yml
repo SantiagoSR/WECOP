@@ -34,9 +34,13 @@ jobs:
         mkdir -p database
         touch database/database.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit
-      working-directory: ./WECOP
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: |
+        mysql -uroot -e "SOURCE ./docs/SqlScripts/createNotEcoProducts.sql;"
+        mysql -uroot -e "SOURCE ./docs/SqlScripts/createEcoProducts.sql;"
+        mysql -uroot -e "SOURCE ./docs/SqlScripts/createUsers.sql;"
+        mysql -uroot -e "SOURCE ./docs/SqlScripts/createReviews.sql;"
+        cd WECOP
         php artisan test
