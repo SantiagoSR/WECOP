@@ -34,8 +34,8 @@ jobs:
         DB_CONNECTION: mysql
         DB_DATABASE: laravel
       run: |
-        mysql -u root -p <./docs/SqlScripts/createNotEcoProducts.sql
-        mysql -u root -p <./docs/SqlScripts/createEcoProducts.sql
+        mysql -u root -p < ./docs/SqlScripts/createNotEcoProducts.sql
+        mysql -u root -p < ./docs/SqlScripts/createEcoProducts.sql
         mysql -u root -p < ./docs/SqlScripts/createUsers.sql
         mysql -u root -p < ./docs/SqlScripts/createReviews.sql
         cd WECOP
