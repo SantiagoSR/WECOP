@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `eco_products`
 --
+DROP TABLE IF EXISTS `eco_products`;
 
 CREATE TABLE `eco_products` (
   `id` bigint(20) UNSIGNED NOT NULL,

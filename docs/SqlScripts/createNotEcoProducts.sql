@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `not_eco_products`
 --
 
+DROP TABLE IF EXISTS `not_eco_products`;
+
 CREATE TABLE `not_eco_products` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` text COLLATE utf8mb4_unicode_ci NOT NULL,

@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `reviews`
 --
 
+DROP TABLE IF EXISTS `reviews`;
+
 CREATE TABLE `reviews` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `rating` double(8,2) NOT NULL,
