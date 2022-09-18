@@ -66,7 +66,7 @@ jobs:
         mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createEcoProducts.sql;"
         mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createUsers.sql"
         mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createReviews.sql"
-        mysql --host 127.0.0.1 -uroot --port 3306 -e "Select * FROM 'laravel'.'eco_products';"
+        mysql --host 127.0.0.1 -uroot --port 3306 -e "SELECT * FROM `laravel`.eco_products;"
 
     - name: Execute tests using artisan
       working-directory: ./WECOP
