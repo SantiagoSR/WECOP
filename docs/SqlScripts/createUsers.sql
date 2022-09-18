@@ -27,17 +27,17 @@ SET time_zone = "+00:00";
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `credit_card` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'client',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- CREATE TABLE `users` (
+--   `id` bigint(20) UNSIGNED NOT NULL,
+--   `user_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+--   `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+--   `credit_card` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+--   `email` text COLLATE utf8mb4_unicode_ci NOT NULL,
+--   `password` text COLLATE utf8mb4_unicode_ci NOT NULL,
+--   `role` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'client',
+--   `created_at` timestamp NULL DEFAULT NULL,
+--   `updated_at` timestamp NULL DEFAULT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
