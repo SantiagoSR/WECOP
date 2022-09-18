@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `users`
 --
-DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
