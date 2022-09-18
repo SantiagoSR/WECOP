@@ -28,19 +28,15 @@ jobs:
     - name: Directory Permissions
       working-directory: ./WECOP
       run: chmod -R 777 storage bootstrap/cache
-    - name: Create Database
-      working-directory: ./WECOP
-      run: |
-        mkdir -p database
-        touch database/database.sqlite
+
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
+        DB_CONNECTION: mysql
+        DB_DATABASE: laravel
       run: |
-        mysql -uroot -e "SOURCE ./docs/SqlScripts/createNotEcoProducts.sql;"
-        mysql -uroot -e "SOURCE ./docs/SqlScripts/createEcoProducts.sql;"
-        mysql -uroot -e "SOURCE ./docs/SqlScripts/createUsers.sql;"
-        mysql -uroot -e "SOURCE ./docs/SqlScripts/createReviews.sql;"
+        mysql -u root -p <./docs/SqlScripts/createNotEcoProducts.sql
+        mysql -u root -p <./docs/SqlScripts/createEcoProducts.sql
+        mysql -u root -p < ./docs/SqlScripts/createUsers.sql
+        mysql -u root -p < ./docs/SqlScripts/createReviews.sql
         cd WECOP
         php artisan test
