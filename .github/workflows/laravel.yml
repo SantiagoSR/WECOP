@@ -64,6 +64,13 @@ jobs:
         mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createUsers.sql;"
         mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createReviews.sql;"
 
+    - name: CodeSniffer
+      working-directory: ./WECOP
+      run: |
+        curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+        php phpcs.phar -h
+        phpcs WECOP
+
     - name: Execute tests using artisan
       working-directory: ./WECOP
       env:
