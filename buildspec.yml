@@ -27,6 +27,7 @@ phases:
      - composer Install
      - mysql --version
      - su mysql -s /bin/bash -c "/usr/sbin/mysqld" &
+     - mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES;"
      - echo generating app key
      - php artisan key:generate
      - php artisan migrate:refresh
@@ -34,9 +35,6 @@ phases:
  post_build:
    commands:
      - echo mysql fill
-     - ls
-     - cd ./WECOP
-     - mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES;"
      - mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW TABLES FROM laravel;"
      - mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createNotEcoProducts.sql;"
      - mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createEcoProducts.sql;"
