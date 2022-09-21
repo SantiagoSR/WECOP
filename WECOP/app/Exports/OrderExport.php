@@ -5,7 +5,6 @@ namespace App\Exports;
 use App\Models\Order;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-
 class OrderExport implements FromCollection
 {
     /**
@@ -19,7 +18,7 @@ class OrderExport implements FromCollection
 
         $order = Order::findOrFail($id);
         $data = [];
-        $data['order'] = $order; 
+        $data['order'] = $order;
         $data['address'] = $order->address;
         $items = $order->items;
         $ecoProducts = [];
