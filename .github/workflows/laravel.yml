@@ -67,7 +67,7 @@ jobs:
     - name: CodeSniffer
       working-directory: ./WECOP
       run: |
-        ./vendor/bin/phpcs -n ./WECOP/WECOP
+        ./vendor/bin/phpcs -n /WECOP
 
     - name: Execute tests using artisan
       working-directory: ./WECOP
