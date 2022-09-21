@@ -65,7 +65,7 @@ jobs:
         mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createReviews.sql;"
 
     - name: CodeSniffer
-      working-directory: ./
+      working-directory: ~/
       run: |
         git clone https://github.com/squizlabs/PHP_CodeSniffer.git
         cd PHP_CodeSniffer
