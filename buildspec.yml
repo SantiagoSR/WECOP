@@ -1,4 +1,8 @@
 version: 0.2
+env:
+  variables:
+    DB_HOST: "localhost"
+    DB_DATABASE: "laravel"
 phases:
  install:
    commands:
@@ -15,11 +19,14 @@ phases:
          mv composer.phar /usr/local/bin/composer
  build:
    commands:
+     - sudo ls 
+     - cd ./WECOP
      - echo "creating .env file"
      - cp .env.example .env
      - echo Build started on `date`
      - echo Installing composer deps
      - composer Install
+     - mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES;" 
      - mysql --host 127.0.0.1 -uroot --port 3306 -e "CREATE DATABASE laravel;"
      - echo generating app key
      - php artisan key:generate
