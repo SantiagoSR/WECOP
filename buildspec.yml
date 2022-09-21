@@ -19,28 +19,27 @@ phases:
    commands:
      - # Install SQLITE3
      - apt-get install -y mysql-server
-     - sudo ls 
      - cd ./WECOP
      - echo "creating .env file"
      - cp .env.example .env
      - echo Build started on `date`
      - echo Installing composer deps
      - composer Install
-     - mysql --version 
-     - mysql --host awseb-e-bfpuk8ikb7-stack-awsebrdsdatabase-8f3mx6ibjqv7.cbywv3mpsh1a.us-east-1.rds.amazonaws.com -uwecop -pwecoppassword --port 3306 -e "SHOW DATABASES;" 
-     - mysql --host 127.0.0.1 -uroot --port 3306 -e "CREATE DATABASE laravel;"
+     - mysql --version
+     - su mysql -s /bin/bash -c "/usr/sbin/mysqld" &
      - echo generating app key
      - php artisan key:generate
      - php artisan migrate:refresh
-     - mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES;"
+
+ post_build:
+   commands:
+     - echo mysql fill
+     - mysql --host 127.0.0.1 -uroot -proot --port 3306 -e "SHOW DATABASES;"
      - mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW TABLES FROM laravel;"
      - mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createNotEcoProducts.sql;"
      - mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createEcoProducts.sql;"
      - mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createUsers.sql;"
      - mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createReviews.sql;"
-
- post_build:
-   commands:
      - echo Build completed on `date`
      - echo running Unit test
      # Do you need to do this? In many cases phpunit will use sqlite or similar to avoid the need for a real DB.
