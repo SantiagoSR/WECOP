@@ -26,9 +26,11 @@ phases:
      - echo Installing composer deps
      - composer Install
      - cat /etc/mysql/my.cnf
+     - sudo /etc/init.d/mysqld restart
+     - echo 
      - mysql --version
      - su mysql -s /bin/bash -c "/usr/sbin/mysqld" &
-     - mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES;"
+     - mysql -uroot --port 3306 -e "SHOW DATABASES;"
      - echo generating app key
      - php artisan key:generate
      - php artisan migrate:refresh
