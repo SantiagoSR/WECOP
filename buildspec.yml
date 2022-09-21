@@ -26,7 +26,6 @@ phases:
      - echo Build started on `date`
      - echo Installing composer deps
      - composer Install
-     - netstat -lnp | grep mysql
      - mysql --host localhost -uroot --port 3306 -e "SHOW DATABASES;" 
      - mysql --host 127.0.0.1 -uroot --port 3306 -e "CREATE DATABASE laravel;"
      - echo generating app key
