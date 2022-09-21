@@ -71,7 +71,7 @@ jobs:
         cd PHP_CodeSniffer
         php bin/phpcs -h
         php bin/phpcbf -h
-        phpcs ./WECOP/WECOP
+        phpcs -n /home/runner/work/WECOP/WECOP
 
     - name: Execute tests using artisan
       working-directory: ./WECOP
