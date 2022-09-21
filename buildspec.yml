@@ -10,8 +10,6 @@ phases:
          export DEBIAN_FRONTEND=noninteractive
          #Update
          apt-get update
-         # Install SQLITE3
-         apt-get install -y mysql-server
          #Install composer
          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
          php composer-setup.php ;
@@ -19,6 +17,8 @@ phases:
          mv composer.phar /usr/local/bin/composer
  build:
    commands:
+     - # Install SQLITE3
+     - apt-get install -y mysql-server
      - sudo ls 
      - cd ./WECOP
      - echo "creating .env file"
@@ -26,7 +26,8 @@ phases:
      - echo Build started on `date`
      - echo Installing composer deps
      - composer Install
-     - mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES;" 
+     - netstat -lnp | grep mysql
+     - mysql --host localhost -uroot --port 3306 -e "SHOW DATABASES;" 
      - mysql --host 127.0.0.1 -uroot --port 3306 -e "CREATE DATABASE laravel;"
      - echo generating app key
      - php artisan key:generate
