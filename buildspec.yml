@@ -1,0 +1,42 @@
+version: 0.2
+phases:
+ install:
+   commands:
+     - |
+         export DEBIAN_FRONTEND=noninteractive
+         #Update
+         apt-get update
+         # Install SQLITE3
+         apt-get install -y mysql
+         #Install composer
+         php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+         php composer-setup.php ;
+         php -r "unlink('composer-setup.php');" ;
+         mv composer.phar /usr/local/bin/composer
+ build:
+   commands:
+     - echo "creating .env file"
+     - cp .env.example .env
+     - echo Build started on `date`
+     - echo Installing composer deps
+     - composer Install
+     - mysql --host 127.0.0.1 -uroot --port 3306 -e "CREATE DATABASE laravel;"
+     - echo generating app key
+     - php artisan key:generate
+     - php artisan migrate:refresh
+     - mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES;"
+     - mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW TABLES FROM laravel;"
+     - mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createNotEcoProducts.sql;"
+     - mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createEcoProducts.sql;"
+     - mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createUsers.sql;"
+     - mysql --host 127.0.0.1 -uroot --port 3306 -D laravel -e "Source ./docs/SqlScripts/createReviews.sql;"
+
+ post_build:
+   commands:
+     - echo Build completed on `date`
+     - echo running Unit test
+     # Do you need to do this? In many cases phpunit will use sqlite or similar to avoid the need for a real DB.
+     # If you don't need it delete it
+     # - /usr/bin/mysql  -u root -e "GRANT ALL ON *.* TO 'test'@'localhost' IDENTIFIED BY '' WITH GRANT OPTION"
+     # - mysqladmin -u test create test
+     - php artisan test
