@@ -9,17 +9,16 @@ use PDF;
 
 class OrderReportPDFCreator implements OrderReportCreator
 {
-    public function createReport($id)
-    {
+    public function createReport($id) {
 
         $data = []; //to be sent to the view
         $order = Order::findOrFail($id);
         $data['order'] = $order;
-        $data['address'] = $order->address;
-        $id = strval($order->getId());
+        $data['address'] = $order->address; 
+        $id = strval($order->getId()); 
         $items = $order->items;
         $ecoProducts = [];
-        foreach ($items as $item) {
+        foreach ($items as $item){
             array_push($ecoProducts, $item->ecoProduct);
         }
 
