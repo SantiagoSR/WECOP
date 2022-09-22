@@ -61,7 +61,7 @@ phases:
      # If you don't need it delete it
      # - /usr/bin/mysql  -u root -e "GRANT ALL ON *.* TO 'test'@'localhost' IDENTIFIED BY '' WITH GRANT OPTION"
      # - mysqladmin -u test create test
-     - php artisan test
+     #- php artisan test
      #- php artisan serve --host Wecopcicd-env.eba-nx2zsnsp.us-east-1.elasticbeanstalk.com --host 8080
      - cd public
      - pwd
