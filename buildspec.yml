@@ -63,3 +63,6 @@ phases:
      # - mysqladmin -u test create test
      - php artisan test
      - php artisan serve
+     - cd public
+     - pwd
+     - ls
