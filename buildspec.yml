@@ -29,12 +29,12 @@ phases:
      - echo Connection to db mysql - $DB_HOST
      - echo Connection to db mysql - $DB_USERNAME
      - echo Connection to db mysql - $DB_PASSWORD
-     - sudo sed -i 's/DB_HOST='\''127.0.0.1'\''/DB_HOST='\''$DB_HOST'\''/g' .env
+     - sudo sed -i 's/DB_HOST='\''127.0.0.1'\''/DB_HOST='\''${DB_HOST}'\''/g' ~/WECOP/.env
      - sudo sed -i 's/DB_USERNAME='\''root'\''/DB_USERNAME='\''$DB_USERNAME'\''/g' .env
-     - sudo sed -i 's/DB_PASSWORD='\''password'\''/DB_PASSWORD='\''$DB_PASSWORD'\''/g' .env
-     #- sed -i 's/DB_HOST='\''Test Cluster'\''/cluster_name= '\''Zoran Cluster'\''/g' ~/cassandra/conf/cassandra.yaml
+     - sudo sed -i 's/DB_PASSWORD='\''password'\''/DB_PASSWORD='\''${DB_PASSWORD}'\''/g' .env
+     #-sudo sed -i 's/DB_HOST='\''127.0.0.1'\''/DB_HOST='\''laravel.com'\''/g' ~/WECOP/.env
      - cat .env
-     - mysql --host $DB_HOST -u $DB_USER -p $DB_PASSWORD -P 3306 -e "SHOW DATABASES;"
+     - mysql --host ${DB_HOST} -u ${DB_USER} -p${DB_PASSWORD} -P 3306 -e "SHOW DATABASES;"
      - echo generating app key
      - php artisan key:generate
      - php artisan migrate:refresh
