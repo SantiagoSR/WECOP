@@ -26,7 +26,7 @@ phases:
      - echo Installing composer deps
      - composer Install
      - mysql --version
-     - echo Connection to db mysql from $DB_HOST
+     - echo Connection to db mysql - $DB_HOST
      - mysql --host ${DB_HOST} -u${DB_USER} -p${DB_PASSWORD} -P 3306 -e "SHOW DATABASES;"
      - sudo sed -i 's/DB_HOST='\''127.0.0.1'\''/DB_HOST='\''${DB_HOST}'\''/g' .env
      - cat .env
