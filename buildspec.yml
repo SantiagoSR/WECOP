@@ -29,7 +29,8 @@ phases:
      - echo Connection to db mysql - $DB_HOST
      - echo Connection to db mysql - $DB_USERNAME
      - echo Connection to db mysql - $DB_PASSWORD
-     - sudo sed -i 's/DB_HOST='\''127.0.0.1'\''/DB_HOST='\''${DB_HOST}'\''/g' ~/WECOP/.env
+     - pwd
+     #- sudo sed -i 's/DB_HOST='\''127.0.0.1'\''/DB_HOST='\''${DB_HOST}'\''/g' env
      - sudo sed -i 's/DB_USERNAME='\''root'\''/DB_USERNAME='\''$DB_USERNAME'\''/g' .env
      - sudo sed -i 's/DB_PASSWORD='\''password'\''/DB_PASSWORD='\''${DB_PASSWORD}'\''/g' .env
      #-sudo sed -i 's/DB_HOST='\''127.0.0.1'\''/DB_HOST='\''laravel.com'\''/g' ~/WECOP/.env
