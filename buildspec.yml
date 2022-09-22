@@ -44,11 +44,11 @@ phases:
      - echo mysql fill
      - cd ..
      - ls ./docs/SqlScripts/
-     - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -e "SHOW TABLES FROM laravel;"
-     - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -e "Source ./docs/SqlScripts/createNotEcoProducts.sql;"
-     - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -e "Source ./docs/SqlScripts/createEcoProducts.sql;"
-     - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -e "Source ./docs/SqlScripts/createUsers.sql;"
-     - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -e "Source ./docs/SqlScripts/createReviews.sql;"
+     - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -D laravel -e "SHOW TABLES FROM laravel;"
+     - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -D laravel -e "Source ./docs/SqlScripts/createNotEcoProducts.sql;"
+     - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -D laravel -e "Source ./docs/SqlScripts/createEcoProducts.sql;"
+     - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -D laravel -e "Source ./docs/SqlScripts/createUsers.sql;"
+     - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -D laravel -e "Source ./docs/SqlScripts/createReviews.sql;"
 
  post_build:
    commands:
