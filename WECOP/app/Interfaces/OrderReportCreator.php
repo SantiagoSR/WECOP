@@ -1,6 +1,7 @@
 <?php
 namespace App\Interfaces;
 
-interface OrderReportCreator {
+interface OrderReportCreator
+{
     public function createReport($items);
 }
