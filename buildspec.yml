@@ -30,12 +30,15 @@ phases:
      - echo Connection to db mysql - $DB_USERNAME
      - echo Connection to db mysql - $DB_PASSWORD
      - pwd
-     #- sudo sed -i 's/DB_HOST='\''127.0.0.1'\''/DB_HOST='\''${DB_HOST}'\''/g' env
-     - sudo sed -i 's/DB_USERNAME='\''root'\''/DB_USERNAME='\''$DB_USERNAME'\''/g' .env
-     - sudo sed -i 's/DB_PASSWORD='\''password'\''/DB_PASSWORD='\''${DB_PASSWORD}'\''/g' .env
+     - export HOST=$DB_HOST
+     - export USER=$DB_USERNAME
+     - export PASS=$DB_PASSWORD
+     - sudo sed -i 's/DB_HOST='\''127.0.0.1'\''/DB_HOST='\''${HOST}'\''/g' .env
+     - sudo sed -i 's/DB_USERNAME='\''root'\''/DB_USERNAME='\''${USER}'\''/g' .env
+     - sudo sed -i 's/DB_PASSWORD='\''password'\''/DB_PASSWORD='\''${PASS}'\''/g' .env
      #-sudo sed -i 's/DB_HOST='\''127.0.0.1'\''/DB_HOST='\''laravel.com'\''/g' ~/WECOP/.env
      - cat .env
-     - mysql --host ${DB_HOST} -u ${DB_USER} -p${DB_PASSWORD} -P 3306 -e "SHOW DATABASES;"
+     - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -e "SHOW DATABASES;"
      - echo generating app key
      - php artisan key:generate
      - php artisan migrate:refresh
