@@ -39,13 +39,13 @@ class TeamApiController extends Controller
         $average_value = 0;
         $average_ingredients= 0;
 
-        for ($i = 0; $i < count($data['products']); $i++ ) {
+        for ($i = 0; $i < count($data['products']); $i++) {
             if ($data['products'][$i]['price'] > 0) {
                 $average_value = $average_value + $data['products'][$i]['price'];
             }
         }
 
-        for ($i = 0; $i < count($data['products']); $i++ ) {
+        for ($i = 0; $i < count($data['products']); $i++) {
             if ($data['products'][$i]['ingredients'] > 0) {
                 $average_ingredients = $average_ingredients + count($data['products'][$i]['ingredients']);
             }
