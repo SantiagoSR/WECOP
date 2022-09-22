@@ -33,10 +33,9 @@ phases:
      - export HOST=$DB_HOST
      - export USER=$DB_USERNAME
      - export PASS=$DB_PASSWORD
-     - sudo sed -i 's/DB_HOST='\''127.0.0.1'\''/DB_HOST='\''${HOST}'\''/g' .env
-     - sudo sed -i 's/DB_USERNAME='\''root'\''/DB_USERNAME='\''${USER}'\''/g' .env
-     - sudo sed -i 's/DB_PASSWORD='\''password'\''/DB_PASSWORD='\''${PASS}'\''/g' .env
-     #-sudo sed -i 's/DB_HOST='\''127.0.0.1'\''/DB_HOST='\''laravel.com'\''/g' ~/WECOP/.env
+     - echo DB_USERNAME=$HOST >> .env
+     - echo DB_PASSWORD=$PASS >> .env
+     - echo DB_HOST=$HOST >> .env
      - cat .env
      - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -e "SHOW DATABASES;"
      - echo generating app key
