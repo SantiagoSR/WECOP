@@ -49,10 +49,12 @@ phases:
      - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -D laravel -e "Source ./docs/SqlScripts/createEcoProducts.sql;"
      - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -D laravel -e "Source ./docs/SqlScripts/createUsers.sql;"
      - mysql --host ${HOST} -u ${USER} -p${PASS} -P 3306 -D laravel -e "Source ./docs/SqlScripts/createReviews.sql;"
+     
 
  post_build:
    commands:
      - echo Build completed on `date`
+     - cd ./WECOP
      - echo running Unit test
      # Do you need to do this? In many cases phpunit will use sqlite or similar to avoid the need for a real DB.
      # If you don't need it delete it
