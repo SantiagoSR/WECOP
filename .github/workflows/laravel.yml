@@ -68,23 +68,14 @@ jobs:
       working-directory: ./WECOP
       run: |
         ./vendor/bin/phpcs -n ./app/Models
-        ./vendor/bin/phpcbf -n ./app/Models
         ./vendor/bin/phpcs -n ./app/Console
-        ./vendor/bin/phpcbf -n ./app/Console
         ./vendor/bin/phpcs -n ./app/Exceptions
-        ./vendor/bin/phpcbf -n ./app/Exceptions
         ./vendor/bin/phpcs -n ./app/Exports
-        ./vendor/bin/phpcbf -n ./app/Exports
         ./vendor/bin/phpcs -n ./app/Http/Controllers
-        ./vendor/bin/phpcbf -n ./app/Http/Controllers
         ./vendor/bin/phpcs -n ./app/Http/Resources
-        ./vendor/bin/phpcbf -n ./app/Http/Resources
         ./vendor/bin/phpcs -n ./app/Interfaces
-        ./vendor/bin/phpcbf -n ./app/Interfaces
         ./vendor/bin/phpcs -n ./app/Providers
-        ./vendor/bin/phpcbf -n ./app/Providers
         ./vendor/bin/phpcs -n ./app/Util
-        ./vendor/bin/phpcbf -n ./app/Util
 
     - name: Execute tests using artisan
       working-directory: ./WECOP
