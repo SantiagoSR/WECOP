@@ -25,9 +25,7 @@ phases:
      - echo Build started on `date`
      - echo Installing composer deps
      - composer Install
-     - cat /etc/mysql/my.cnf
      - mysql --version
-     - ps aux | grep mysql
      - mysql --host db-wecop.cbywv3mpsh1a.us-east-1.rds.amazonaws.com -uwecop -pwecoppassword --port 3306 -e "SHOW DATABASES;"
      - echo generating app key
      - php artisan key:generate
