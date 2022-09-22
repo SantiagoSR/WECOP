@@ -6,8 +6,8 @@ use App\Models\Order;
 //use Barryvdh\DomPDF\Facade\PDF;
 use PDF;
 
-class OrderReportPDFCreator implements OrderReportCreator {
-
+class OrderReportPDFCreator implements OrderReportCreator
+{
     public function createReport($id)
     {
 

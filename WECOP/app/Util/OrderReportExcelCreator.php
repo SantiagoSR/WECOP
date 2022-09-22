@@ -7,7 +7,8 @@ use App\Models\Order;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
-class OrderReportExcelCreator implements OrderReportCreator {
+class OrderReportExcelCreator implements OrderReportCreator
+{
     public function createReport($id)
     {
         $fileName = "Order".$id.".xlsx";
