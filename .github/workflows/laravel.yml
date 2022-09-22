@@ -72,7 +72,7 @@ jobs:
         ./vendor/bin/phpcs -n ./app/Exceptions
         ./vendor/bin/phpcs -n ./app/Exports
         ./vendor/bin/phpcs -n ./app/Http/Controllers
-        ./vendor/bin/phpcs -n ./app/Http/Respurces
+        ./vendor/bin/phpcs -n ./app/Http/Resources
         ./vendor/bin/phpcs -n ./app/Interfaces
         ./vendor/bin/phpcs -n ./app/Providers
         ./vendor/bin/phpcs -n ./app/Util
