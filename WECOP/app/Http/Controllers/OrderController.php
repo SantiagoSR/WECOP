@@ -45,11 +45,12 @@ class OrderController extends Controller
         return view('order.show')->with('data', $data);
     }
 
-    public function createDocument($type, $id){
-        if ($type == 'excel'){
+    public function createDocument($type, $id)
+    {
+        if ($type == 'excel') {
             $reportCreator = app()->makeWith(OrderReportCreator::class, ['arrayOrder' => $type]);
             return $reportCreator->createReport($id);
-        }else{
+        } else {
             $reportCreator = app()->makeWith(OrderReportCreator::class, ['arrayOrder' => $type]);
             return $reportCreator->createReport($id);
         }
