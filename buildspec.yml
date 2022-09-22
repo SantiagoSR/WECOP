@@ -18,7 +18,6 @@ phases:
  build:
    commands:
      - # Install SQLITE3
-     - sudo mv my.cnf /etc/mysql/my.cnf
      - apt-get install -y mysql-server
      - cd ./WECOP
      - echo "creating .env file"
@@ -29,7 +28,7 @@ phases:
      - cat /etc/mysql/my.cnf
      - mysql --version
      - ps aux | grep mysql
-     - mysql --host 127.0.0.1 -uroot --port 3306 -e "SHOW DATABASES;"
+     - mysql --host db-wecop.cbywv3mpsh1a.us-east-1.rds.amazonaws.com -uwecop -pwecoppassword --port 3306 -e "SHOW DATABASES;"
      - echo generating app key
      - php artisan key:generate
      - php artisan migrate:refresh
