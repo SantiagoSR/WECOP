@@ -10,7 +10,7 @@ use PDF;
 class OrderReportPDFCreator implements OrderReportCreator
 {
     public function createReport($id)
-{
+    {
 
         $data = []; //to be sent to the view
         $order = Order::findOrFail($id);
