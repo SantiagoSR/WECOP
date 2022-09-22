@@ -10,11 +10,11 @@ class ReportServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->bind(OrderReportCreator::class, function ($app, $items){
+        $this->app->bind(OrderReportCreator::class, function ($app, $items) {
             $order_report = $items["arrayOrder"];
-            if ($order_report == "excel"){
+            if ($order_report == "excel") {
                 return new OrderReportExcelCreator($items);
-            }else{
+            } else {
                 return new OrderReportPDFCreator($items);
             }
         });
