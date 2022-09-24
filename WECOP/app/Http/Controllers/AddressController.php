@@ -24,10 +24,14 @@ class AddressController extends Controller
 {
 
     public function options()
+    
     {
 
-        
-        $data = [];
+
+            $data = [];
+
+
+        #esto es un comentario 
         $title = Lang::get('messages.address_options');
         $data['pageTitle'] = $title;
         $route = [[Lang::get('breadcrumbs.address'), 'address.options']];
