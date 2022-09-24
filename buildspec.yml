@@ -58,8 +58,6 @@ phases:
      - cd ./WECOP
      - echo running Unit test
      - cd public
-     - pwd
-     - ls
 artifacts:
    files:
          - '**/*'
